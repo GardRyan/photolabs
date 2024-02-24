@@ -3,7 +3,7 @@ import React from "react";
 import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton";
 
-const PhotoListItem = (props) => {
+const PhotoListItem = ({props}) => {
   return (
     <div className="photo-list_item" key={props.id}>
       <img className="photo-list_image" src={props.urls.regular} />
