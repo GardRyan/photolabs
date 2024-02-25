@@ -3,12 +3,15 @@ import React from "react";
 import "../styles/PhotoDetailsModal.scss";
 import closeSymbol from "../assets/closeSymbol.svg";
 import PhotoList from "components/PhotoList";
+import PhotoFavButton from "components/PhotoFavButton";
 
 const PhotoDetailsModal = ({
   closeModal,
   selectedPhoto,
   setSelectedPhoto,
   similarPhotos,
+  toggleFavourite,
+  favourites,
 }) => {
   const similarPhotosValues = Object.values(similarPhotos);
 
@@ -29,6 +32,11 @@ const PhotoDetailsModal = ({
             src={selectedPhoto.urls.regular}
           />
         )}
+        <PhotoFavButton
+          photoId={selectedPhoto.id}
+          toggleFavourite={toggleFavourite}
+          favourites={favourites}
+        />
       </div>
       <div className="photo-details-modal__header">
         {/* Header content ??? */}
@@ -53,6 +61,11 @@ const PhotoDetailsModal = ({
         <div className="photo-details-modal__similar_photos">
           <span>Similar Photos</span>
           <PhotoList photos={similarPhotosValues} />
+          <PhotoFavButton
+            photoId={similarPhotos.id}
+            toggleFavourite={toggleFavourite}
+            favourites={favourites}
+          />
         </div>
       </div>
     </div>

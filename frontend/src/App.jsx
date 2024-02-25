@@ -51,6 +51,8 @@ const App = () => {
           setSelectedPhoto={setSelectedPhoto}
           closeModal={closeModal}
           similarPhotos={selectedPhoto.similar_photos || []}
+          toggleFavourite={toggleFavourite}
+          favourites={favourites}
         />
       )}
       ;
