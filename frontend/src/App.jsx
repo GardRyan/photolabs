@@ -19,13 +19,31 @@ const App = () => {
     setSelectedPhoto(null);
   };
 
+  const [favourites, setFavourites] = useState([]);
+  const [hasFavourited, setHasFavourited] = useState(false);
+
+  const toggleFavourite = (photoId) => {
+    setFavourites((prevFavourites) => {
+      if (prevFavourites.includes(photoId)) {
+        const updatedFavourites = prevFavourites.filter((id) => id !== photoId);
+        setHasFavourited(updatedFavourites.length > 0);
+        return updatedFavourites;
+      } else {
+        setHasFavourited(true);
+        return [...prevFavourites, photoId];
+      }
+    });
+  };
+
   return (
     <div className="App">
       <HomeRoute
         topics={topics}
         photos={photos}
         openModal={openModal}
-        closeModal={closeModal}
+        toggleFavourite={toggleFavourite}
+        favourites={favourites}
+        hasFavourited={hasFavourited}
       />
       {selectedPhoto && (
         <PhotoDetailsModal
