@@ -1,5 +1,9 @@
-const useApplicationData = () {
+import { useState } from 'react';
+
+const useApplicationData = () => {
   const [selectedPhoto, setSelectedPhoto] = useState(null);
+  const [favourites, setFavourites] = useState([]);
+  const [hasFavourited, setHasFavourited] = useState(false);
 
   const openModal = (photo) => {
     setSelectedPhoto(photo);
@@ -9,21 +13,29 @@ const useApplicationData = () {
     setSelectedPhoto(null);
   };
 
-  const [favourites, setFavourites] = useState([]);
-  const [hasFavourited, setHasFavourited] = useState(false);
-
   const toggleFavourite = (photoId) => {
     setFavourites((prevFavourites) => {
-      if (prevFavourites.includes(photoId)) {
-        const updatedFavourites = prevFavourites.filter((id) => id !== photoId);
-        setHasFavourited(updatedFavourites.length > 0);
-        return updatedFavourites;
-      } else {
-        setHasFavourited(true);
-        return [...prevFavourites, photoId];
-      }
+      const isFavourited = prevFavourites.includes(photoId);
+      const updatedFavourites = isFavourited
+        ? prevFavourites.filter((id) => id !== photoId)
+        : [...prevFavourites, photoId];
+
+      setHasFavourited(updatedFavourites.length > 0);
+      return updatedFavourites;
     });
   };
-}
+
+  return {
+    selectedPhoto,
+    openModal,
+    closeModal,
+    favourites,
+    hasFavourited,
+    toggleFavourite,
+  };
+};
+
+export default useApplicationData;
+
 
 export default useApplicationData;
