@@ -26,17 +26,17 @@ const PhotoDetailsModal = ({
         </button>
       </div>
       <div className="photo-details-modal__images">
+        <PhotoFavButton
+          photoId={selectedPhoto.id}
+          toggleFavourite={toggleFavourite}
+          favourites={favourites}
+        />
         {selectedPhoto.urls && selectedPhoto.urls.regular && (
           <img
             className="photo-details-modal__image"
             src={selectedPhoto.urls.regular}
           />
         )}
-        <PhotoFavButton
-          photoId={selectedPhoto.id}
-          toggleFavourite={toggleFavourite}
-          favourites={favourites}
-        />
       </div>
       <div className="photo-details-modal__header">
         {/* Header content ??? */}

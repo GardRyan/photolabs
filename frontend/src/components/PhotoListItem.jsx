@@ -6,16 +6,16 @@ import PhotoFavButton from "./PhotoFavButton";
 const PhotoListItem = ({ photo, toggleFavourite, favourites, openModal }) => {
   return (
     <div className="photo-list__item" key={photo.id}>
+      <PhotoFavButton
+        photoId={photo.id}
+        toggleFavourite={toggleFavourite}
+        favourites={favourites}
+      />
       <img
         className="photo-list__image"
         src={photo.urls.regular}
         alt={photo.alt_description}
         onClick={() => openModal(photo)}
-      />
-      <PhotoFavButton
-        photoId={photo.id}
-        toggleFavourite={toggleFavourite}
-        favourites={favourites}
       />
       <div className="photo-list__user-details">
         <img
