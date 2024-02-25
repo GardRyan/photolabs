@@ -10,7 +10,6 @@ const PhotoDetailsModal = ({
   setSelectedPhoto,
   similarPhotos,
 }) => {
-
   const similarPhotosValues = Object.values(similarPhotos);
 
   return (
@@ -49,11 +48,11 @@ const PhotoDetailsModal = ({
             </div>
           </>
         )}
-        <div>
-          <div className="photo-details-modal__similar_photos">
-            <span>Similar Photos</span>
-            <PhotoList photos={similarPhotosValues} />
-          </div>
+      </div>
+      <div>
+        <div className="photo-details-modal__similar_photos">
+          <span>Similar Photos</span>
+          <PhotoList photos={similarPhotosValues} />
         </div>
       </div>
     </div>
