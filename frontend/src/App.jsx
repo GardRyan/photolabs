@@ -5,35 +5,19 @@ import "./App.scss";
 import topics from "./mocks/topics";
 import photos from "./mocks/photos";
 import PhotoDetailsModal from "routes/PhotoDetailsModal";
+import useApplicationData from "hooks/useApplicationData";
 
 // Note: Rendering a single component to build components in isolation
 
 const App = () => {
-  const [selectedPhoto, setSelectedPhoto] = useState(null);
-
-  const openModal = (photo) => {
-    setSelectedPhoto(photo);
-  };
-
-  const closeModal = () => {
-    setSelectedPhoto(null);
-  };
-
-  const [favourites, setFavourites] = useState([]);
-  const [hasFavourited, setHasFavourited] = useState(false);
-
-  const toggleFavourite = (photoId) => {
-    setFavourites((prevFavourites) => {
-      if (prevFavourites.includes(photoId)) {
-        const updatedFavourites = prevFavourites.filter((id) => id !== photoId);
-        setHasFavourited(updatedFavourites.length > 0);
-        return updatedFavourites;
-      } else {
-        setHasFavourited(true);
-        return [...prevFavourites, photoId];
-      }
-    });
-  };
+  const {
+    useState(null),
+    openModal,
+    closeModal,
+    useState([]),
+    useState(false),
+    toggleFavourite 
+  } = useApplicationData();
 
   return (
     <div className="App">
