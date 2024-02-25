@@ -3,7 +3,7 @@ import React from "react";
 import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton";
 
-const PhotoListItem = ({ photo, toggleFavourite, favourites, openModal, closeModal }) => {
+const PhotoListItem = ({ photo, toggleFavourite, favourites, openModal }) => {
   return (
     <div className="photo-list__item" key={photo.id}>
       <img
