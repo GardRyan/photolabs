@@ -5,9 +5,9 @@ import PhotoFavButton from "./PhotoFavButton";
 
 const PhotoListItem = ({ photo, toggleFavourite, favourites }) => {
   return (
-    <div className="photo-list_item" key={photo.id}>
+    <div className="photo-list__item" key={photo.id}>
       <img
-        className="photo-list_image"
+        className="photo-list__image"
         src={photo.urls.regular}
         alt={photo.alt_description}
       />
@@ -16,15 +16,15 @@ const PhotoListItem = ({ photo, toggleFavourite, favourites }) => {
         toggleFavourite={toggleFavourite}
         favourites={favourites}
       />
-      <div className="photo-list_user-details">
+      <div className="photo-list__user-details">
         <img
-          className="photo-list_user-profile"
+          className="photo-list__user-profile"
           src={photo.user.profile}
           alt={photo.user.username}
         />
-        <div className="photo-list_user-info">
+        <div className="photo-list__user-info">
           <span>{photo.user.username} </span>
-          <span className="photo-list_user-location">
+          <span className="photo-list__user-location">
             {photo.location.city}, {photo.location.country}
           </span>
         </div>

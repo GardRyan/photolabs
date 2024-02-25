@@ -11,12 +11,12 @@ function PhotoFavButton({ photoId, toggleFavourite, favourites }) {
   };
 
   return (
-    <div>
+    <div className="photo-list__fav-icon-container">
       <button
         onClick={handleClick}
-        className={isFavourite ? "favorited" : "not-favorited"}
+        className={`photo-list__fav-icon ${isFavourite ? "favorited" : "not-favorited"}`}
       >
-        {isFavourite ? "Favourited" : "Not Favourited"}
+        <FavIcon className="photo-list__fav-icon-svg" />
       </button>
     </div>
   );
