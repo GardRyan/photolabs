@@ -7,6 +7,11 @@ import TopNavigation from "components/TopNavigationBar";
 const HomeRoute = ({ topics, photos }) => {
   const [favourites, setFavourites] = useState([]);
 
+
+  //this could be an issue with passing props down
+  //I believe this needs an answer to render but
+  //photofavbutton renders after this.
+  
   const toggleFavourite = (photoId) => {
     setFavourites((prevFavourites) => {
       if (prevFavourites.includes(photoId)) {
