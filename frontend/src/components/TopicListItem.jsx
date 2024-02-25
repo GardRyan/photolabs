@@ -6,7 +6,7 @@ const TopicListItem = ({title}) => {
 
   return (
     <div className="topic-list__item">
-     <button>{title}</button>
+     <span>{title}</span>
     </div>
   );
 };
