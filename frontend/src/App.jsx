@@ -21,8 +21,21 @@ const App = () => {
 
   return (
     <div className="App">
-      <HomeRoute topics={topics} photos={photos} openModal={openModal} closeModal={closeModal} />
-      {selectedPhoto && <PhotoDetailsModal selectedPhoto={selectedPhoto} setSelectedPhoto={setSelectedPhoto} closeModal={closeModal}/>};
+      <HomeRoute
+        topics={topics}
+        photos={photos}
+        openModal={openModal}
+        closeModal={closeModal}
+      />
+      {selectedPhoto && (
+        <PhotoDetailsModal
+          selectedPhoto={selectedPhoto}
+          setSelectedPhoto={setSelectedPhoto}
+          closeModal={closeModal}
+          similarPhotos={selectedPhoto.similar_photos || []}
+        />
+      )}
+      ;
     </div>
   );
 };
