@@ -3,13 +3,14 @@ import React from "react";
 import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton";
 
-const PhotoListItem = ({ photo, toggleFavourite, favourites }) => {
+const PhotoListItem = ({ photo, toggleFavourite, favourites, openModal, closeModal }) => {
   return (
     <div className="photo-list__item" key={photo.id}>
       <img
         className="photo-list__image"
         src={photo.urls.regular}
         alt={photo.alt_description}
+        onClick={() => openModal(photo)}
       />
       <PhotoFavButton
         photoId={photo.id}
