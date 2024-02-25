@@ -22,7 +22,7 @@ const App = () => {
   return (
     <div className="App">
       <HomeRoute topics={topics} photos={photos} openModal={openModal} closeModal={closeModal} />
-      {selectedPhoto && <PhotoDetailsModal openModal={openModal} closeModal={closeModal}/>};
+      {selectedPhoto && <PhotoDetailsModal selectedPhoto={selectedPhoto} setSelectedPhoto={setSelectedPhoto} closeModal={closeModal}/>};
     </div>
   );
 };
