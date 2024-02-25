@@ -60,9 +60,8 @@ const PhotoDetailsModal = ({
       <div>
         <div className="photo-details-modal__similar_photos">
           <span>Similar Photos</span>
-          <PhotoList photos={similarPhotosValues} />
-          <PhotoFavButton
-            photoId={similarPhotos.id}
+          <PhotoList
+            photos={similarPhotosValues}
             toggleFavourite={toggleFavourite}
             favourites={favourites}
           />
