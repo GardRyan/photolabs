@@ -4,7 +4,7 @@ import FavIcon from "./FavIcon";
 import "../styles/PhotoFavButton.scss";
 
 function PhotoFavButton({ photoId, toggleFavourite, favourites }) {
-  const isFavourite = favourites.includes(photoId);
+  const isFavourite = favourites?.includes(photoId) || false;
 
   const handleClick = () => {
     toggleFavourite(photoId);
