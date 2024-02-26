@@ -11,9 +11,11 @@ import useApplicationData from "hooks/useApplicationData";
 
 const App = () => {
   const {
-    ...state,
+    selectedPhoto,
     openModal,
     closeModal,
+    favourites,
+    hasFavourited,
     toggleFavourite,
   } = useApplicationData();
 
