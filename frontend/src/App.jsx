@@ -7,9 +7,12 @@ import useApplicationData from "hooks/useApplicationData";
 
 // Note: Rendering a single component to build components in isolation
 
-const App = ({topics, photos}) => {
-  const {
+const App = () => {
+  const { 
+    photoData,
+    topicData,
     selectedPhoto,
+    state,
     openModal,
     closeModal,
     favourites,
@@ -20,8 +23,8 @@ const App = ({topics, photos}) => {
   return (
     <div className="App">
       <HomeRoute
-        topics={topics}
-        photos={photos}
+        topics={state.topicData}
+        photos={state.photoData}
         openModal={openModal}
         toggleFavourite={toggleFavourite}
         favourites={favourites}

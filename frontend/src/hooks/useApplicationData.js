@@ -20,7 +20,7 @@ function reducer(state, action) {
     case ACTIONS.SET_TOPIC_DATA:
       return {
         ...state,
-        topicData: action.payload,
+        topicData: action.payload === null ? [] : action.payload,
       };
     case ACTIONS.FAV_PHOTO_ADDED:
       const newFavouritesAdd = [...state.favourites, action.payload];
@@ -43,12 +43,12 @@ function reducer(state, action) {
         ...state,
         selectedPhoto: action.payload,
       };
-      case ACTIONS.GET_PHOTOS_BY_TOPICS:
-        return {
-          ...state,
-          photoData: action.payload,
-          topicData: state.topicData,
-        }
+    case ACTIONS.GET_PHOTOS_BY_TOPICS:
+      return {
+        ...state,
+        photoData: action.payload,
+        topicData: state.topicData,
+      };
     default:
       throw new Error(
         `Tried to reduce with unsupported action type: ${action.type}`
@@ -69,21 +69,32 @@ const useApplicationData = () => {
 
   useEffect(() => {
     fetch("/api/photos")
-      .then((response) => response.json())
-      .then((data) => dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data }));
+      .then((response) => {
+        return response.json();
+      })
+
+      .then((data) =>
+        dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data })
+      );
   }, []);
 
   useEffect(() => {
     fetch("/api/topics")
-      .then((response) => response.json())
-      .then((data) => dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: data }));
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) =>
+        dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: data })
+      );
   }, []);
 
   useEffect(() => {
     if (state.selectedTopic) {
       fetch(`/api/photos/${state.selectedTopic}`)
         .then((response) => response.json())
-        .then((data) => dispatch({ type: ACTIONS.GET_PHOTOS_BY_TOPICS, payload: data }));
+        .then((data) =>
+          dispatch({ type: ACTIONS.GET_PHOTOS_BY_TOPICS, payload: data })
+        );
     }
   }, [state.selectedTopic]);
 
@@ -104,7 +115,7 @@ const useApplicationData = () => {
   };
 
   return {
-    ...state,
+    state,
     openModal,
     closeModal,
     toggleFavourite,
