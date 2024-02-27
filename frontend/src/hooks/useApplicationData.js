@@ -7,6 +7,7 @@ export const ACTIONS = {
   SET_TOPIC_DATA: "SET_TOPIC_DATA",
   SELECT_PHOTO: "SELECT_PHOTO",
   DISPLAY_PHOTO_DETAILS: "DISPLAY_PHOTO_DETAILS",
+  GET_PHOTOS_BY_TOPICS: "GET_PHOTOS_BY_TOPICS",
 };
 
 function reducer(state, action) {
@@ -42,6 +43,12 @@ function reducer(state, action) {
         ...state,
         selectedPhoto: action.payload,
       };
+      case ACTIONS.GET_PHOTOS_BY_TOPICS:
+        return {
+          ...state,
+          photoData: action.payload,
+          topicData: state.topicData,
+        }
     default:
       throw new Error(
         `Tried to reduce with unsupported action type: ${action.type}`
@@ -65,6 +72,20 @@ const useApplicationData = () => {
       .then((response) => response.json())
       .then((data) => dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data }));
   }, []);
+
+  useEffect(() => {
+    fetch("/api/topics")
+      .then((response) => response.json())
+      .then((data) => dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: data }));
+  }, []);
+
+  useEffect(() => {
+    if (state.selectedTopic) {
+      fetch(`/api/photos/${state.selectedTopic}`)
+        .then((response) => response.json())
+        .then((data) => dispatch({ type: ACTIONS.GET_PHOTOS_BY_TOPICS, payload: data }));
+    }
+  }, [state.selectedTopic]);
 
   const openModal = (photo) => {
     dispatch({ type: ACTIONS.SELECT_PHOTO, payload: photo });
