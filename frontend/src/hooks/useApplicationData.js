@@ -1,16 +1,26 @@
-import { useReducer } from 'react';
+import { useReducer, useEffect } from "react";
 
 export const ACTIONS = {
-  FAV_PHOTO_ADDED: 'FAV_PHOTO_ADDED',
-  FAV_PHOTO_REMOVED: 'FAV_PHOTO_REMOVED',
-  SET_PHOTO_DATA: 'SET_PHOTO_DATA',
-  SET_TOPIC_DATA: 'SET_TOPIC_DATA',
-  SELECT_PHOTO: 'SELECT_PHOTO',
-  DISPLAY_PHOTO_DETAILS: 'DISPLAY_PHOTO_DETAILS',
+  FAV_PHOTO_ADDED: "FAV_PHOTO_ADDED",
+  FAV_PHOTO_REMOVED: "FAV_PHOTO_REMOVED",
+  SET_PHOTO_DATA: "SET_PHOTO_DATA",
+  SET_TOPIC_DATA: "SET_TOPIC_DATA",
+  SELECT_PHOTO: "SELECT_PHOTO",
+  DISPLAY_PHOTO_DETAILS: "DISPLAY_PHOTO_DETAILS",
 };
 
 function reducer(state, action) {
   switch (action.type) {
+    case ACTIONS.SET_PHOTO_DATA:
+      return {
+        ...state,
+        photoData: action.payload,
+      };
+    case ACTIONS.SET_TOPIC_DATA:
+      return {
+        ...state,
+        topicData: action.payload,
+      };
     case ACTIONS.FAV_PHOTO_ADDED:
       const newFavouritesAdd = [...state.favourites, action.payload];
       return {
@@ -44,9 +54,17 @@ const useApplicationData = () => {
     selectedPhoto: null,
     favourites: [],
     hasFavourited: false,
+    photoData: [],
+    topicData: [],
   };
 
   const [state, dispatch] = useReducer(reducer, initialState);
+
+  useEffect(() => {
+    fetch("/api/photos")
+      .then((response) => response.json())
+      .then((data) => dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data }));
+  }, []);
 
   const openModal = (photo) => {
     dispatch({ type: ACTIONS.SELECT_PHOTO, payload: photo });
