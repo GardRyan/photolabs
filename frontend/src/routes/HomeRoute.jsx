@@ -13,6 +13,7 @@ const HomeRoute = ({
   hasFavourited,
   selectedPhoto,
   selectedTopic,
+  viewByTopic
 }) => {
   return (
     <div className="home-route">
@@ -20,6 +21,8 @@ const HomeRoute = ({
         topics={topics}
         hasFavourited={hasFavourited}
         selectedTopic={selectedTopic}
+        photos={photos}
+        viewByTopic={viewByTopic}
       />
       <PhotoList
         photos={photos}

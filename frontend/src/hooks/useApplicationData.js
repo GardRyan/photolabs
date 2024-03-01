@@ -45,11 +45,15 @@ function reducer(state, action) {
         selectedPhoto: action.payload,
       };
     case ACTIONS.GET_PHOTOS_BY_TOPICS:
+      const filteredPhotos = state.photoData.filter(
+        (photo) => photo.TOPIC_ID === action.payload.TOPIC_ID
+      );
       return {
         ...state,
-        photoData: action.payload,
-        topicData: state.topicData,
+        photoData: filteredPhotos,
+        selectedTopic: action.payload.TOPIC_ID,
       };
+
     default:
       throw new Error(
         `Tried to reduce with unsupported action type: ${action.type}`
@@ -90,19 +94,29 @@ const useApplicationData = () => {
       );
   }, []);
 
-  useEffect(() => {
-    if (state.selectedTopic) {
-      fetch(`/api/photos/${state.selectedTopic}`)
-        .then((response) => response.json())
-        .then((data) =>
-          dispatch({ type: ACTIONS.GET_PHOTOS_BY_TOPICS, payload: data })
-        );
-    }
-  }, [state.selectedTopic]);
+  // useEffect(() => {
+  //   if (state.selectedTopic) {
+  //     fetch(`/api/photos/${state.selectedTopic}/similar`)
+  //       .then((response) => response.json())
+  //       .then((data) => {
+  //         dispatch({
+  //           type: ACTIONS.SET_PHOTOS_BY_TOPIC,
+  //           payload: {
+  //             photos: data,
+  //             topicId: state.selectedTopic,
+  //           },
+  //         });
+  //       })
+  //       .catch((error) => {
+  //         console.error("Error fetching photos by topic:", error);
+  //       });
+  //   }
+  // }, [state.selectedTopic]);
 
   const openModal = (photo) => {
     dispatch({ type: ACTIONS.SELECT_PHOTO, payload: photo });
   };
+  1;
 
   const closeModal = () => {
     dispatch({ type: ACTIONS.SELECT_PHOTO, payload: null });
@@ -110,16 +124,28 @@ const useApplicationData = () => {
 
   const toggleFavourite = (photoId) => {
     if (state.favourites.includes(photoId)) {
-      console.log("click");
       dispatch({ type: ACTIONS.FAV_PHOTO_REMOVED, payload: photoId });
     } else {
-      console.log("noclick");
       dispatch({ type: ACTIONS.FAV_PHOTO_ADDED, payload: photoId });
     }
   };
 
+  const viewByTopic = (topicIds) => {
+    topicIds.forEach(topicId => {
+      photoData.forEach(photo => {
+        if (photo.TOPIC_ID === topicId) {
+          dispatch({
+            type: ACTIONS.GET_PHOTOS_BY_TOPICS,
+            payload: { TOPIC_ID: topicId }
+          });
+        }
+      });
+    });
+  };
+
   return {
     state,
+    viewByTopic,
     openModal,
     closeModal,
     toggleFavourite,

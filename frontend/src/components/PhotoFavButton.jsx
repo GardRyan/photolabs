@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback } from "react";
 
 import FavIcon from "./FavIcon";
 import "../styles/PhotoFavButton.scss";
@@ -16,7 +16,7 @@ function PhotoFavButton({ photoId, toggleFavourite, favourites }) {
   const iconClassName = isFavourite ? "photo-list__fav-icon-svg" : "photo-list__fav-icon";
 
   return (
-    <div className=" asdfadsf photo-list__fav-icon-container" onClick={handleClick} >
+    <div className="photo-list__fav-icon-container" onClick={handleClick} >
       <FavBadge className={iconClassName} selected={isFavourite} />
     </div>
   );

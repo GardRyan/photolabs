@@ -13,6 +13,7 @@ const App = () => {
     openModal,
     closeModal,
     toggleFavourite,
+    viewByTopic,
   } = useApplicationData();
 
   return (
@@ -21,10 +22,10 @@ const App = () => {
         topics={state.topicData}
         photos={state.photoData}
         openModal={openModal}
-        toggleFavourite={toggleFavourite}
         favourites={state.favourites}
         hasFavourited={state.hasFavourited}
         selectedTopic={state.selectedTopic}
+        viewByTopic={viewByTopic}
       />
       {state.selectedPhoto && (
         <PhotoDetailsModal

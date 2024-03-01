@@ -4,16 +4,12 @@ import "../styles/TopNavigationBar.scss";
 import TopicList from "./TopicList";
 import FavBadge from "./FavBadge";
 
-const TopNavigation = ({ topics, hasFavourited, selectedTopic}) => {
-
-  const handleTopicClick = (selectingTopic) => {
-    console.log("Selected topic:", selectingTopic);
-  };
+const TopNavigation = ({ topics, hasFavourited, selectedTopic, viewByTopic, photos }) => {
 
   return (
     <div className="top-nav-bar">
       <span className="top-nav-bar__logo">PhotoLabs</span>
-      <TopicList topics={topics} selectedTopic={selectedTopic} />
+      <TopicList topics={topics} selectedTopic={selectedTopic} viewByTopic={viewByTopic} photos={photos}/>
       <FavBadge isFavPhotoExist={hasFavourited} />
     </div>
   );
