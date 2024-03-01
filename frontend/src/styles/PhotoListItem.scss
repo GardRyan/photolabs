@@ -6,17 +6,22 @@
   border-style: solid;
   border-radius: 12px;
   max-width: fit-content;
+  position: relative;
+ 
 }
 
-.photo-list__image {
-  user-select: none;
-  width: 300px;
-  height: 200px;
-  object-fit: cover;
-}
-
-.photo-list__image {
+.photo-list__image-container {
+  position: relative;
   border-radius: 8px 8px 0px 0px;
+
+}
+
+.photo-fav-button {
+  top: 1em;
+  position: fixed;
+}
+
+.photo-list__image {
   user-select: none;
   width: 300px;
   height: 200px;
