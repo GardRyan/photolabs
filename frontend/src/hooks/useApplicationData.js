@@ -23,6 +23,7 @@ function reducer(state, action) {
         topicData: action.payload === null ? [] : action.payload,
       };
     case ACTIONS.FAV_PHOTO_ADDED:
+      console.log("favphotoadded");
       const newFavouritesAdd = [...state.favourites, action.payload];
       return {
         ...state,
@@ -59,6 +60,7 @@ function reducer(state, action) {
 const useApplicationData = () => {
   const initialState = {
     selectedPhoto: null,
+    selectedTopic: null,
     favourites: [],
     hasFavourited: false,
     photoData: [],
@@ -108,8 +110,10 @@ const useApplicationData = () => {
 
   const toggleFavourite = (photoId) => {
     if (state.favourites.includes(photoId)) {
+      console.log("click");
       dispatch({ type: ACTIONS.FAV_PHOTO_REMOVED, payload: photoId });
     } else {
+      console.log("noclick");
       dispatch({ type: ACTIONS.FAV_PHOTO_ADDED, payload: photoId });
     }
   };

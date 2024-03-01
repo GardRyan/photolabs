@@ -11,15 +11,22 @@ const HomeRoute = ({
   toggleFavourite,
   favourites,
   hasFavourited,
+  selectedPhoto,
+  selectedTopic,
 }) => {
   return (
     <div className="home-route">
-      <TopNavigation topics={topics} hasFavourited={hasFavourited} />
+      <TopNavigation
+        topics={topics}
+        hasFavourited={hasFavourited}
+        selectedTopic={selectedTopic}
+      />
       <PhotoList
         photos={photos}
         toggleFavourite={toggleFavourite}
         favourites={favourites}
         openModal={openModal}
+        selectedPhoto={selectedPhoto}
       />
     </div>
   );
