@@ -56,8 +56,8 @@ npm start
 
 ## Screenshots
 
-!["Home page with search bar hidden"](https://github.com/GardRyan/midterm/blob/master/docs/Screen%20Shot%202024-02-16%20at%2013.04.04-fullpage.png)
-!["Home page with search bar hidden"](https://github.com/GardRyan/midterm/blob/master/docs/Screen%20Shot%202024-02-16%20at%2013.04.04-fullpage.png)
-!["Home page with search bar hidden"](https://github.com/GardRyan/midterm/blob/master/docs/Screen%20Shot%202024-02-16%20at%2013.04.04-fullpage.png)
-!["Home page with search bar hidden"](https://github.com/GardRyan/midterm/blob/master/docs/Screen%20Shot%202024-02-16%20at%2013.04.04-fullpage.png)
+!["Home page"](https://github.com/GardRyan/photolabs/blob/main/docs/Photolabs_homepage.jpg)
+!["Modal"](https://github.com/GardRyan/photolabs/blob/main/docs/Photolabs_modal.jpg.png)
+!["Modal with Like"](https://github.com/GardRyan/photolabs/blob/main/docs/Photolabs_modal_like.png)
+!["Topic Select"](https://github.com/GardRyan/photolabs/blob/main/docs/Photolabs_topicSelect.jpg.png)
 
