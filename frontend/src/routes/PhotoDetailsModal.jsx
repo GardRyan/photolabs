@@ -8,7 +8,6 @@ import PhotoFavButton from "components/PhotoFavButton";
 const PhotoDetailsModal = ({
   closeModal,
   selectedPhoto,
-  setSelectedPhoto,
   similarPhotos,
   toggleFavourite,
   favourites,
