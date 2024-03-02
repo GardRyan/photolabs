@@ -23,7 +23,6 @@ function reducer(state, action) {
         topicData: action.payload === null ? [] : action.payload,
       };
     case ACTIONS.FAV_PHOTO_ADDED:
-      console.log("favphotoadded");
       const newFavouritesAdd = [...state.favourites, action.payload];
       return {
         ...state,
@@ -87,7 +86,6 @@ const useApplicationData = () => {
   }, []);
 
   const viewByTopic = (id) => {
-    console.log("id", id);
     fetch(`/api/topics/photos/${id}`)
       .then((response) => response.json())
       .then((data) =>
