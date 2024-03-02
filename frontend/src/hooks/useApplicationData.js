@@ -44,22 +44,6 @@ function reducer(state, action) {
         ...state,
         selectedPhoto: action.payload,
       };
-    // case ACTIONS.GET_PHOTOS_BY_TOPICS:
-    //   // const filteredPhotos = state.topicData.filter((photo) => {
-    //   //   //photo?.TOPIC_ID === action.payload.TOPIC_ID;
-    //   //   console.log('photo', photo)
-    //   //   // console.log(
-    //   //   //   `Filtering: ${photo?.TOPIC_ID} against ${action.payload.TOPIC_ID}`
-    //   //   // );
-    //   // });
-
-    //   //make an api call
-
-    //   return {
-    //     ...state,
-    //     filteredPhotoData: filteredPhotos,
-    //     selectedTopic: action.payload.TOPIC_ID,
-    //   };
 
     default:
       throw new Error(
