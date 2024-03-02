@@ -8,13 +8,8 @@ import useApplicationData from "hooks/useApplicationData";
 // Note: Rendering a single component to build components in isolation
 
 const App = () => {
-  const { 
-    state,
-    openModal,
-    closeModal,
-    toggleFavourite,
-    viewByTopic,
-  } = useApplicationData();
+  const { state, openModal, closeModal, toggleFavourite, viewByTopic } =
+    useApplicationData();
 
   return (
     <div className="App">
@@ -26,6 +21,7 @@ const App = () => {
         hasFavourited={state.hasFavourited}
         selectedTopic={state.selectedTopic}
         viewByTopic={viewByTopic}
+        filteredPhotoData={state.filteredPhotoData}
       />
       {state.selectedPhoto && (
         <PhotoDetailsModal

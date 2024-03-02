@@ -1,18 +1,19 @@
 import React, { useCallback } from "react";
 import "../styles/TopicListItem.scss";
 
-const TopicListItem = ({ topic, selectedTopic, viewByTopic, photos }) => {
+const TopicListItem = ({ topicId, topic, selectedTopic, viewByTopic, filteredPhotoData }) => {
 
-  const handleClick = useCallback(() => {
-    const topicIds = photos.map(photo => photo.TOPIC_ID);
-    console.log(topicIds);
-
-    viewByTopic(topicIds);
-  }, [viewByTopic, photos]);
+  const handleClick = () => {
+    
+    console.log(topicId);
+    viewByTopic(topicId);
+  };
 
   return (
     <div
-      className={`topic-list__item ${selectedTopic === topic.id ? 'selected' : ''}`}
+      className={`topic-list__item ${
+        selectedTopic === topicId ? "selected" : ""
+      }`}
       onClick={handleClick}
     >
       <span>{topic.title}</span>

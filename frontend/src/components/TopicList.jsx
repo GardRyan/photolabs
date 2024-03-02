@@ -3,7 +3,7 @@ import React from "react";
 import "../styles/TopicList.scss";
 import TopicListItem from "./TopicListItem";
 
-const TopicList = ({ topics, selectedTopic, viewByTopic, photos }) => {
+const TopicList = ({ filteredPhotoData, topics, selectedTopic, viewByTopic, photos }) => {
   return (
     <div className="top-nav-bar__topic-list">
       {topics &&
@@ -11,9 +11,10 @@ const TopicList = ({ topics, selectedTopic, viewByTopic, photos }) => {
           <TopicListItem
             key={topic.id}
             topic={topic}
+            topicId={topic.id}
             selectedTopic={selectedTopic}
             viewByTopic={viewByTopic}
-            photos={photos}
+            filteredPhotoData={filteredPhotoData}
           />
         ))}
     </div>
