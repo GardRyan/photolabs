@@ -11,21 +11,20 @@ const PhotoList = ({
   selectedTopic,
 }) => {
   const displayData = selectedTopic ? filteredPhotoData : photos;
-  console.log("dd", displayData);
+
   return (
     <ul className="photo-list">
-      {Array.isArray(displayData)
-        ? displayData.map((photo) => (
-            <li key={photo.id} className="photo-list-item">
-              <PhotoListItem
-                photo={photo}
-                toggleFavourite={toggleFavourite}
-                favourites={favourites}
-                openModal={openModal}
-              />
-            </li>
-          ))
-        : null}
+      {displayData.map((photo) => (
+        <li key={photo.id} className="photo-list-item">
+          <PhotoListItem
+            photo={photo}
+            photoId={photo.id}
+            toggleFavourite={toggleFavourite}
+            favourites={favourites}
+            openModal={openModal}
+          />
+        </li>
+      ))}
     </ul>
   );
 };

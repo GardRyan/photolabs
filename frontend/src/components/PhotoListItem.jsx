@@ -3,12 +3,18 @@ import React from "react";
 import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton";
 
-const PhotoListItem = ({ photo, toggleFavourite, favourites, openModal }) => {
+const PhotoListItem = ({
+  photo,
+  photoId,
+  toggleFavourite,
+  favourites,
+  openModal,
+}) => {
   return (
     <div className="photo-list__item" key={photo.id}>
       <div className="photo-list__image-container">
-      <PhotoFavButton
-          photoId={photo.id}
+        <PhotoFavButton
+          photoId={photoId}
           toggleFavourite={toggleFavourite}
           favourites={favourites}
           className={"photo-fav-button"}
@@ -19,7 +25,6 @@ const PhotoListItem = ({ photo, toggleFavourite, favourites, openModal }) => {
           alt={photo.alt_description}
           onClick={() => openModal(photo)}
         />
-       
       </div>
       <div className="photo-list__user-details">
         <img
