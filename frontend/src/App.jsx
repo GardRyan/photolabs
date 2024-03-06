@@ -21,6 +21,7 @@ const App = () => {
         hasFavourited={state.hasFavourited}
         selectedTopic={state.selectedTopic}
         viewByTopic={viewByTopic}
+        toggleFavourite={toggleFavourite}
         filteredPhotoData={state.filteredPhotoData}
       />
       {state.selectedPhoto && (
