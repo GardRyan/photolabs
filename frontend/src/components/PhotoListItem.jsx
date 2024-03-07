@@ -17,7 +17,6 @@ const PhotoListItem = ({
           photoId={photoId}
           toggleFavourite={toggleFavourite}
           favourites={favourites}
-          className={"photo-fav-button"}
         />
         <img
           className="photo-list__image"

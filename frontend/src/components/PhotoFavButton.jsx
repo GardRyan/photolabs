@@ -16,7 +16,7 @@ function PhotoFavButton({ photoId, toggleFavourite, favourites }) {
     : "photo-list__fav-icon";
 
   return (
-    <div className="photo-list__fav-icon-container" onClick={handleClick}>
+    <div className="photo-list__fav-icon" onClick={handleClick}>
       <FavBadge className={iconClassName} selected={isFavourite} />
     </div>
   );
