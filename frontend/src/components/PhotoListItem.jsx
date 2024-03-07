@@ -23,7 +23,7 @@ const PhotoListItem = ({
           className="photo-list__image"
           src={photo.urls.regular}
           alt={photo.alt_description}
-          onClick={() => openModal(photo)}
+          onClick={() => openModal(photoId)}
         />
       </div>
       <div className="photo-list__user-details">

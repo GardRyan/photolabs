@@ -41,7 +41,9 @@ function reducer(state, action) {
     case ACTIONS.SELECT_PHOTO:
       return {
         ...state,
-        selectedPhoto: action.payload,
+        selectedPhoto: state.photoData.find(
+          (photoId) => photoId.id === action.payload
+        ),
       };
 
     default:
@@ -97,9 +99,12 @@ const useApplicationData = () => {
   };
 
   const openModal = (photo) => {
+    if (state.selectedPhoto) {
+      closeModal();
+    }
+
     dispatch({ type: ACTIONS.SELECT_PHOTO, payload: photo });
   };
-  1;
 
   const closeModal = () => {
     dispatch({ type: ACTIONS.SELECT_PHOTO, payload: null });

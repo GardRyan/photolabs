@@ -8,12 +8,11 @@ import PhotoFavButton from "components/PhotoFavButton";
 const PhotoDetailsModal = ({
   closeModal,
   selectedPhoto,
-  similarPhotos,
   toggleFavourite,
   favourites,
+  openModal,
+  filteredPhotoData,
 }) => {
-  const similarPhotosValues = Object.values(similarPhotos);
-
   return (
     <div className="photo-details-modal">
       <div className="photo-details-modal__top-bar">
@@ -60,9 +59,11 @@ const PhotoDetailsModal = ({
         <div className="photo-details-modal__similar_photos">
           <span>Similar Photos</span>
           <PhotoList
-            photos={similarPhotosValues}
+            filteredPhotoData={filteredPhotoData}
             toggleFavourite={toggleFavourite}
             favourites={favourites}
+            openModal={openModal}
+            photos={selectedPhoto.similar_photos}
           />
         </div>
       </div>

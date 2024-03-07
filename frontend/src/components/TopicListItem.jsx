@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import "../styles/TopicListItem.scss";
 
-const TopicListItem = ({ topicId, topic, selectedTopic, viewByTopic, filteredPhotoData }) => {
+const TopicListItem = ({ topicId, topic, selectedTopic, viewByTopic }) => {
 
   const handleClick = () => {
     

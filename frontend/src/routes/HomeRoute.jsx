@@ -23,7 +23,6 @@ const HomeRoute = ({
         hasFavourited={hasFavourited}
         selectedTopic={selectedTopic}
         viewByTopic={viewByTopic}
-        filteredPhotoData={filteredPhotoData}
       />
       <PhotoList
         photos={photos}

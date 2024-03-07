@@ -27,11 +27,12 @@ const App = () => {
       {state.selectedPhoto && (
         <PhotoDetailsModal
           selectedPhoto={state.selectedPhoto}
+          filteredPhotoData={state.filteredPhotoData}
           setSelectedPhoto={state.setSelectedPhoto}
           closeModal={closeModal}
-          similarPhotos={state.selectedPhoto.similar_photos || []}
           toggleFavourite={toggleFavourite}
           favourites={state.favourites}
+          openModal={openModal}
         />
       )}
       ;
