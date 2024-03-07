@@ -32,7 +32,7 @@ const PhotoDetailsModal = ({
         {selectedPhoto.urls && selectedPhoto.urls.regular && (
           <img
             className="photo-details-modal__image"
-            src={selectedPhoto.urls.regular}
+            src={selectedPhoto.urls.full}
           />
         )}
       </div>
@@ -57,7 +57,7 @@ const PhotoDetailsModal = ({
       </div>
       <div>
         <div className="photo-details-modal__similar_photos">
-          <span>Similar Photos</span>
+          <span className="photo-details-modal__title_similar_photos">Similar Photos</span>
           <PhotoList
             filteredPhotoData={filteredPhotoData}
             toggleFavourite={toggleFavourite}
